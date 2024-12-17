@@ -1,50 +1,70 @@
-// These functions open and close the contact form
-function openForm() {
-    document.getElementById("myForm").style.display = "block";
-}
+// Initializes the slideIndex to track the current slide
+let slideIndex = 1;
+showSlides(slideIndex); // Displays the first slide when the page loads
 
-function closeForm() {
-    document.getElementById("myForm").style.display = "none";
-}
-
-// This function displays the first image in the slideshow when the page loads
-var slideIndex = 1;
-showSlides(slideIndex);
-
-
-// This function changes the slide when the left or right arrows are clicked 
+// Function to change slides when the "Next" or "Previous" buttons are clicked
 function plusSlides(n) {
     showSlides(slideIndex += n);
 }
-// this function changes the slide when the dots are clicked
+
+// Function to set the current slide when a dot is clicked
 function currentSlide(n) {
     showSlides(slideIndex = n);
 }
 
+// Main function to display the slides
 function showSlides(n) {
-    var slides = document.getElementsByClassName("mySlides"); // This takes all elements with the class name "mySlides" and stores them in the variable array "slides"
-    var dots = document.getElementsByClassName("dot"); // This takes all elements with the class name "dot" and stores them in the variable array "dots"
-    if (n > slides.length) {slideIndex = 1}; // If n (the number passed into the function) is greater than the length of the array "slides", the slideIndex is set to 1
-    if (n < 1) {slideIndex = slides.length}; // If n (the number passed into the function) is less than 1, te slideIndex is set to the length of the array "slides"
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none"; // This for loop takes each item in the array "slides" and sets the display to none
+    const slides = document.getElementsByClassName("mySlides"); // Collects all slides
+    const dots = document.getElementsByClassName("dot"); // Collects all dots
+
+    if (slides.length === 0) return; // Exits if there are no slides
+
+    // Wraps around the slideIndex if it exceeds the number of slides
+    if (n > slides.length) { slideIndex = 1; }
+    if (n < 1) { slideIndex = slides.length; }
+
+    // Hides all slides
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
     }
-    for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", ""); // This for loop takes each item in the array "dots" and removes "active" which removes the active styling
+
+    // Removes the "active" class from all dots
+    for (let i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
     }
-    slides[slideIndex - 1].style.display = "block"; // This displays the image in the slideshow
-    dots[slideIndex - 1].className += " active"; // This adds the active styling to the dot associated with the image
+
+    // Displays the current slide and activates the corresponding dot
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].className += " active";
 }
 
-// This code will create close the contact form when the user clicks off of it
-// The first step is to add an event listener for any clicks on the website
-document.addEventListener("click", function(event){
-    // Here we state that if the click happens on the cancel button OR anywhere that is not the contact form AND the click does not happen on any element with the contact class then call the closeForm() function
-    if (event.target.matches(".cancel") || !event.target.closest(".form-popup") && !event.target.closest(".Pop_Up_Button") && !event.target.closest(".contact")){
-        closeForm()
+// Opens the contact form with a fade-in effect
+function openForm() {
+    const form = document.getElementById("myForm");
+    form.style.display = "block";
+    form.classList.remove("fade-out");
+    form.classList.add("fade-in");
+}
+
+// Closes the contact form with a fade-out effect
+function closeForm() {
+    const form = document.getElementById("myForm");
+    form.classList.remove("fade-in");
+    form.classList.add("fade-out");
+    setTimeout(() => {
+        form.style.display = "none"; // Hides the form after the animation ends
+    }, 500); // Duration of the fade-out animation
+}
+
+// Closes the contact form if the user clicks outside the form
+document.addEventListener("click", function(event) {
+    const isCancel = event.target.matches(".cancel"); // Checks if the "cancel" button is clicked
+    const isOutsideForm = !event.target.closest(".form-popup"); // Checks if the click is outside the form
+    const isOutsideButton = !event.target.closest(".Pop_Up_Button"); // Checks if the click is outside the "Contact" button
+    const isOutsideContact = !event.target.closest(".contact"); // Checks if the click is outside any contact-related elements
+
+    // Closes the form if the click meets the conditions
+    if (isCancel || (isOutsideForm && isOutsideButton && isOutsideContact)) {
+        closeForm();
     }
-}, false )
-
-// -------------------------------------
-
-
+}, false);

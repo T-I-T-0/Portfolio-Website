@@ -10,8 +10,11 @@ body {
     opacity: 1;  /* this and transition affect the page loading fade in effect*/
     transition: 3s opacity; /*this cause a 3 second fade in*/
     letter-spacing: .2vm;  /*vm is a relative measurement,1vm is equal to 1% of the viewport width */
-    font-family: Avant Garde, Helvetica;
-    font-size:1.5vm;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    background-color: #f5f5f5; 
+    color: #222222; 
     overflow-x: hidden; /* this prevents the horizontal scroll bar from appearing when the quote is hovered over*/
     user-select: none; /*this prevents the text on the webpage from being highlighted by the user*/
 }
@@ -22,12 +25,13 @@ body.fade-out {
 }
 
 /* Heading 1 elements */
-h1 {
+h1, h2 {
     text-transform: uppercase; /* Capitalizing all h1 headings */
-    font-family: "Bonna nova sc", Optima; /* Sets the font family of all h1 headings */
+    font-family: Arial, Helvetica, sans-serif; /* Sets the font family of all h1 headings */
     text-align: center; /* Centering all h1 elements */
     margin-top: 3%; /* Adds a small margin above h1 elements */
-    color: #ee0c0c; 
+    color: #333333; /* A vibrant coral color for headings */ 
+    font-size: 2rem;
 }
 
 /* Heading 1 element hover effect */
@@ -39,7 +43,9 @@ h1:hover {
 
 /* Styling for portfolio title text */
 .white-text {
-    color: #ee0c0c; /* This is used to change the color of the portfolio title text */
+    color: #1a73e8; /* Rang modern abi */
+    font-weight: bold;
+    text-align: center;
     padding-top: 10vh; /* Adds padding (equal to 10% of the viewport height)to the top the portfolio title  text*/
 }
 
@@ -51,6 +57,7 @@ p {
     font-size: 2.5vw;
     padding-left: 1vw; /* Adds padding to the left of the paragraph element */
     padding-right: 1vw; /* Adds padding to the right of the paragraph element */
+    color: #444444;
 }
 
 /* Paragraph element hover effect */
@@ -62,6 +69,7 @@ p:hover {
 /* Center class - this applies to all elements with the class "center" */
 .center {
     text-align: center; /* This center aligns the text */
+    color: #d3d3d3;
 }
 
 /* Center class hover effect - This only affects the quote, github link, and footer */
@@ -72,7 +80,7 @@ p:hover {
 
 /* Anchor elements */
 a {
-    color: rgb(75, 111, 210); /* This ensures all links are blue */
+    color: #1a73e8; /* Green for links */
     cursor: pointer; /* This ensures all links change the mouse to a pointer when hovered over or clicked */
     text-decoration: underline; /* This ensures all links are underlined */
 }
@@ -80,6 +88,7 @@ a {
 /* Quotation elements */
 q {
     font-style: italic; /* This makes the quote italicized */
+    color: #d3d3d3;
 }
 
 /* Image elements */
@@ -117,12 +126,21 @@ footer {
     color: white;
     
 }
+footer a {
+    color: #1a73e8; /* Link haie footer abi modern */
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #0d47a1; /* Hover baraye link haie footer */
+}
 /***** END OF GENERAL STYLING *****/
 
 /***** NAVBAR STYLING *****/
 .Navbar {
     overflow: hidden; /* This ensures that any content that overflows beyond the boundary of our nav bar is not displayed */
-    background-color: black; /* This colors the navbar black */
+    background-color: #ffffff; 
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
     position: fixed; /* This keeps the navbar at the top of the screen as we scroll */
     top: 0; /* This ensures no space is displayed above the navbar */
     width: 100%; /* This makes the navbar span the entire width of the page */
@@ -141,7 +159,7 @@ footer {
 .Navbar a {
     float: left; /* This specifies that the text floats on the left on the navbar */
     display: block; /* This ensures that other text will be displayed on the same line or row, instead of a new line */
-    color: rgb(169, 251, 242); /* This is the font color for text on our navbar */
+    color: #333333; /* Bright orange links */
     padding: 14px 16px; /* This adds padding around our text */
     text-decoration: none; /* This gets rid of the underlines under the text on our navbar */
     font-family: Avant Garde, Helvetica; /* This specifies the font family for text on our navbar */
@@ -168,8 +186,8 @@ footer {
 
 /* Navbar hover effects */
 .Navbar a:hover {
-    background-color: #a8f9ed; /* Defines the background color that will display when you hover over the link */
-    color: black; /* This defines the font color that will display when navbar a elements are hovered over */
+    background-color: #d3d3d3;
+    color: #1a73e8; /* This defines the font color that will display when navbar a elements are hovered over */
     font-weight: bold; /* This makes the text on the navbar bold when hovered over */
     cursor: pointer;
     transition: 0.5s ease-in; /*creates a smooth transition for the hover trigger*/
@@ -177,7 +195,8 @@ footer {
 
 /* Navbar home button */
 .Navbar a.active { /* This targets the a element on the navbar with the "active" class */
-    background-color: darkgray;
+    background-color: #d3d3d3;
+    color: #333333;
 }
 /***** END OF NAVBAR STYLING *****/
 
@@ -246,7 +265,7 @@ footer {
     vertical-align: middle; /*This centers the images vertically within the slideshow container*/
     height: auto; /* the height of the images is automatically adjusted based on the content,
     ie if your images are different sizes, they will display as different sizes*/
-    box-shadow: 0px 5px 10px 12px rgba(0, 0, 0, .75); /*Adds a shadow around the slideshow images*/
+    box-shadow: 0px 5px 10px 12px rgba(0, 150, 136, 0.5); /*Adds a shadow around the slideshow images*/
     width: 100%; /*the width of the images is automatically adjusted based on the content*/
 }
 
@@ -299,12 +318,16 @@ footer {
     height: 1vw; /*the dots are sized relative to the viewport width*/
     width: 1vw;
     margin: .25vw; /*adds additional spacing between the dots */
-    background-color: white; /*makes the dots white*/
+    background-color: #4caf50; /* Green dots */
     border-radius: 50%; /*Makes the dots circles by rounding each corner*/
     display: inline-block; /*Allows the dots to site next to each other rather than on a new line*/
     transition: background-color 0.6s ease; /*When clicked on the dots transition to a different color when clicked or hovered over (the affect is defined below)*/
     z-index: 1; /*This ensures the dots will be displayed above any other elements*/
 }
+.dot:hover, .active {
+    background-color: #81c784; /* Lighter green */
+}
+
 
 /* Hover effect for slideshow dots */
 .active, .dot:hover {
@@ -341,9 +364,10 @@ footer {
     width: 50%; /* This ensures the column takes up half of the page width */
     padding: 1.6%;
     height: 450px; /* This sets the height of the column to 400px -  this may need to be adjusted depending on the text you enter */
-    background-color: #000000; /* Sets the background color of the columns with class Column_1 */
+    
     text-align: center;
-    color: #74edd0;
+    background-color: #fbfbfb; /* Background safid sade */
+    color: #444444;
 }
 
 /* Screens 576px and smaller will display a scroll bar if the text overflows the column height */
@@ -358,7 +382,8 @@ footer {
     width: 50%;
     padding: 1.6%;
     height: 450px;
-    background-color: #03e7aa;
+    background-color: #f8f9fa; /* Gray-light */
+    color: #333333;
 }
 
 
@@ -405,18 +430,41 @@ screen to its fixed location on the viewport*/
 .form-container {
     max-width: 49vw; /*Relative sizing of the form container - 49% of the viewport width*/
     padding: 1vw; /*Adds padding between the form-popup and the form-container*/
-    background-color: white;
+    background-color: #2a2a3b; /* Darker form background */
+    color: #e0e0e0;
 }
 
-
 /* input fields */
-.form-container input[type=text] {
+.form-container input[type="text"] {
    width: 100%; /*The input boxes completely fill the width of the form-container*/
    padding: .93vw; /*Adds padding to the input boxes*/
    margin: .6vw .6vw 0; /*Adds space between the input boxes and the labels*/
    border: none; /*Removes the border from the input boxes */
-   background: gainsboro;/* Sets the background color of the input boxes*/
+   background-color: #3b3b4f; /* Medium gray */
+    color: white;
    font-size: 1vw; /*Relative font sizing based on the width f the viewport*/
+}
+.form-container .btn {
+    background-color: #009688; /* Teal button */
+    color: white;
+    border: none;
+    margin-bottom: 1vw;
+}
+
+.form-container .btn:hover {
+    background-color: #00796b; /* Dark teal */
+    transition-duration: 1s;
+}
+
+.form-container .cancel {
+    background-color: #d32f2f; /* Red cancel button */
+    color: white;
+    border: none;
+}
+
+.form-container .cancel:hover {
+    background-color: #b71c1c; /* Darker red */
+    transition-duration: 1s;
 }
 
 /* General styling for all buttons */
@@ -429,6 +477,14 @@ button {
     cursor: pointer; /*Changes the cursor to pointer over button element*/
     width: 100%; /*Sets the width of the buttons to 100% of their containers*/
     height: auto; /*Allows the height to be resized depending on the content showing*/
+    background-color: #1a73e8; /* Indigo */
+    color: white;
+    border-color: #283593; /* Darker indigo border */
+}
+button:hover {
+    background-color: #0d47a1; /* Bright blue */
+    color: #e3f2fd; /* Light text */
+    transition: 0.5s ease;
 }
 
 
@@ -479,13 +535,22 @@ button:hover, .form-container .btn:hover {
         font-size: 3.5vw;
     }
 }
+@media screen and (max-width: 576px) {
+    img {
+        height: 100px; /* For adjusting image height on small screens */
+        margin-top: 150px;
+    }
+    #Typing_Video {
+        display: none; /* Remove video for small screens */
+    }
+}
 
 @media screen and (min-width: 661px) and (max-width: 799px) {
     p {
         font-size: 2.75vw;
     }
 }
-@Media screen and (max-width: 800px) and (max-width: 924px) {
+@Media screen and (min-width: 800px) and (max-width: 924px) {
     p {
         font-size: 2.5vw;
     }
@@ -503,6 +568,19 @@ button:hover, .form-container .btn:hover {
 @Media screen and (max-width: 1311px) and (max-width: 1535px) {
     p {
         font-size: 1.75vw;
+    }
+}
+@media screen and (min-width: 1725px) {
+    .Column_1 {
+        height: 550px; /* Increase height for large screens */
+    }
+    .Column_2 {
+        height: 550px;
+    }
+}
+@media screen and (min-width: 2000px) {
+    h1 {
+        margin-top: 0;
     }
 }
 @Media screen and (max-width: 1536px) and (max-width: 2269px) {
@@ -548,6 +626,29 @@ button:hover, .form-container .btn:hover {
 @media screen and (min-width: 2000px) {
     h1{
         margin-top: 0;
+    }
+}
+/* Effect Contact form */
+
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+}
+
+.fade-out {
+    opacity: 1;
+    animation: fadeOut 0.5s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
     }
 }
 /***** End of Media Query Section *****/
